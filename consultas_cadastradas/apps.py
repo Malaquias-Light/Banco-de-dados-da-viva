@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class DocumentacaoConfig(AppConfig):
-    name = 'documentacao'
+class ConsultasCadastradasConfig(AppConfig):
+    name = 'consultas_cadastradas'

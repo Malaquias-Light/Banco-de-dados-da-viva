@@ -31,3 +31,17 @@ class Medico(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Consulta(models.Model):
+    medico = models.ForeignKey(Medico, on_delete=models.CASCADE, verbose_name='Médico')
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, verbose_name='Paciente')
+    data_hora = models.DateTimeField(verbose_name='Data e hora da consulta')
+    especialidade = models.TextField(null=True, blank=True, verbose_name='Especialidade')
+
+    class Meta:
+        ordering = ['data_hora']
+        verbose_name = 'Consulta'
+
+    def __str__(self):
+        return f"Consulta de {self.paciente.nome} com {self.medico.nome} em {self.data_hora}"
